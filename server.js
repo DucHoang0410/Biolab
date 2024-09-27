@@ -2,12 +2,9 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const chaptersRoutes = require("./routes/chapters");
-const moduleRoutes = require("./routes/module");
 const userRoutes = require("./routes/user");
 const path = require("path");
 const routes = require("./routes/ToDoRoute");
-const { socketController } = require("./contollers/chatController");
 mongoose.set('strictQuery', false);
 
 //express app created
@@ -21,7 +18,6 @@ const io = require("socket.io")(server, {
   },
 });
 
-socketController(io);
 
 const cors = require("cors");
 const corsOptions = {
@@ -39,11 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/chat", socketController);
-app.use("/api/chapters", chaptersRoutes);
-app.use("/api/module", moduleRoutes);
 app.use("/api/user", userRoutes);
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(routes);
 
 //connect to db
