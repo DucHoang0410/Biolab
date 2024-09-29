@@ -14,7 +14,7 @@ const TestSchema = new Schema({
   },
   short_name: { 
     type: String, 
-    required: true 
+    default: ''
   },
   created_time: { 
     type: Date, 
