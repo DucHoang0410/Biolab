@@ -9,20 +9,26 @@ const createToken = (_id) => {
 
 //login user
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  console.log(req.body);
-
   try {
+    const { email, password } = req.body;
+    console.log(req.body);
     const user = await UserModel.login(email, password);
 
     //create token
     const token = createToken(user._id);
     const _id = user._id;
-    const name = user.name;
-    const avatar = user.avatar;
     const role = user.role;
-    // console.log(name, avatar, _id, email, token, role);
-    res.status(200).json({ name, avatar, _id, email, token, role });
+    // console.log( _id, email, token, role);
+    res.status(200).json({ 
+      code: 200,
+      msg: 'login successful',
+      info: {
+        id: _id,
+        email: email,
+        token: token,
+        role: role
+      }
+      });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
@@ -31,7 +37,7 @@ const loginUser = async (req, res) => {
 
 //signup user
 const signUpUser = async (req, res) => {
-  const {  email, password } = req.body;
+  const { email, password } = req.body;
   console.log('req.body', req.body);
 
   try {
@@ -41,7 +47,15 @@ const signUpUser = async (req, res) => {
     const token = createToken(user._id);
     console.log(token);
 
-    res.status(200).json({ email, token });
+    res.status(200).json({
+      code: 200,
+      msg: 'signup successful',
+      info: {
+        id: user._id,
+        email: user.email,
+        role: user.role
+      }
+     });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
@@ -50,5 +64,5 @@ const signUpUser = async (req, res) => {
 
 module.exports = {
   loginUser,
-  signUpUser,
+  signUpUser
 };

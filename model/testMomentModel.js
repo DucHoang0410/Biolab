@@ -17,7 +17,10 @@ const TestMomentSchema = new Schema({
     },
     photo_url: { 
       type: String 
-    }
+    },
+    ruler: { 
+      type: String 
+    },
   });
   
   // Tạo model từ schema
