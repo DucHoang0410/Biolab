@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
 const testRoutes = require("./routes/testRouter");
+const testMomentRoutes = require("./routes/testMomentRouter");
 mongoose.set('strictQuery', false);
 
 //express app created
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/test", testRoutes);
+app.use("/api/testMoment", testMomentRoutes);
 
 //connect to db
 mongoose

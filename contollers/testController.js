@@ -47,7 +47,7 @@ const getAllTest = async (req, res) => {
 
 
 module.exports = {
-   createTest,
+    createTest,
     getAllTest
   };
   

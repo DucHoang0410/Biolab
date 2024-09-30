@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 const TestMomentSchema = new Schema({
     test_id: { 
       type: Schema.Types.ObjectId, 
