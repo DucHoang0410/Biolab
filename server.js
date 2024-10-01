@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
 const testRoutes = require("./routes/testRouter");
 const testMomentRoutes = require("./routes/testMomentRouter");
-mongoose.set('strictQuery', false);
+const photoRoutes = require("./routes/photoRouter");
 
+mongoose.set('strictQuery', false);
 //express app created
 const app = express();
 const server = require("http").createServer(app);
@@ -41,6 +42,7 @@ app.use('/image', express.static('public/image'));
 app.use("/api/user", userRoutes);
 app.use("/api/test", testRoutes);
 app.use("/api/test-moment", testMomentRoutes);
+app.use("/api/photo", photoRoutes);
 
 //connect to db
 mongoose
