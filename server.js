@@ -34,10 +34,13 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+// Cấu hình Express để truy cập các tệp trong thư mục public
+app.use('/image', express.static('public/image'));
+
 
 app.use("/api/user", userRoutes);
 app.use("/api/test", testRoutes);
-app.use("/api/testMoment", testMomentRoutes);
+app.use("/api/test-moment", testMomentRoutes);
 
 //connect to db
 mongoose

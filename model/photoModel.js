@@ -9,7 +9,6 @@ const PhotoSchema = new Schema({
     },
     photo_id: { 
       type: String, 
-      required: true 
     },
     name: { 
       type: String, 
