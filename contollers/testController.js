@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 //create new chapters
 const createTest = async (req, res) => {
     const {name,created_time} = req.body;
-    console.log(req.user);
+    // console.log(req.user);
     try {
       const user_id = req.user._id;
      

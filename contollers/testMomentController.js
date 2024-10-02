@@ -34,7 +34,7 @@ const createTestMoment = async (req, res) => {
 const getAllTestMomentByID = async (req, res) => {
    try{
     const {testId} = req.params;
-    console.log(testId);
+    // console.log(testId);
      const testMoment = await TestMoment.find({test_id: testId});
         res.status(200).json({
             code: 200,
