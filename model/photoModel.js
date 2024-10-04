@@ -17,7 +17,10 @@ const PhotoSchema = new Schema({
     photo_url: { 
       type: String, 
       required: true 
-    }
+    },
+    created_time: { 
+      type: Date
+    },
   });
   
   // Tạo model từ schema

@@ -12,6 +12,6 @@ router.use(requireAuth);
 
 
 // get all photo by test moment id
-router.get("/:test_moment_id", getAllPhotoByTestMomentID);
+router.get("/:momentId", getAllPhotoByTestMomentID);
 
 module.exports = router;
