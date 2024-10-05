@@ -68,10 +68,38 @@ const createNewPhotos = async (req, res) => {
     });
   }
 };
+//get photo detail
+const getPhotoDetail = async (req, res) => {
+  const { photoId } = req.params;
+  try {
+    const photo = await Photo.findById(photoId);
+
+    if (!photo) {
+      return res.status(404).json({
+        code: 404,
+        msg: 'Photo not found',
+      });
+    }
+
+    res.status(200).json({
+      code: 200,
+      msg: 'Get photo detail successful',
+      data: photo,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      code: 500,
+      msg: 'An error occurred while fetching photo detail',
+      error: error.message,
+    });
+  }
+};
 
 
 
 module.exports = {
     getAllPhotoByTestMomentID,
-    createNewPhotos
+    createNewPhotos,
+    getPhotoDetail
   };
