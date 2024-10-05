@@ -54,8 +54,8 @@ const createNewPhotos = async (req, res) => {
 
     await Promise.all(promises);
 
-    res.status(201).json({
-      code: 201,
+    res.status(200).json({
+      code: 200,
       msg: 'Created new photos successfully',
       data: newPhotos,
     });
