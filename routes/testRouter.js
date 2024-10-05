@@ -5,7 +5,7 @@ const {
     createTest,
     getAllTest
 
-} = require("../contollers/testController");
+} = require("../controllers/testController");
 
 //require auth for all workout routes
 router.use(requireAuth);

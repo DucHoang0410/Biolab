@@ -4,14 +4,17 @@ const router = express.Router();
 const upload = require('../middleware/multer');
 
 const {
-    getAllPhotoByTestMomentID
-} = require("../contollers/photoController");
+    getAllPhotoByTestMomentID,
+    createNewPhotos
+} = require("../controllers/photoController");
 
-//require auth for all workout routes
+// Require auth for all photo routes
 router.use(requireAuth);
 
-
-// get all photo by test moment id
+// Get all photos by test moment ID
 router.get("/:momentId", getAllPhotoByTestMomentID);
+
+// Create new photos
+router.post("/create-photos", upload.array('photos'), createNewPhotos);
 
 module.exports = router;

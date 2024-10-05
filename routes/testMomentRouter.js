@@ -7,7 +7,7 @@ const upload = require('../middleware/multer');
 const {
     createTestMoment,
     getAllTestMomentByID
-}= require("../contollers/testMomentController");
+}= require("../controllers/testMomentController");
 
 //require auth for all workout routes
 router.use(requireAuth);
