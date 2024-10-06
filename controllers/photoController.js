@@ -84,7 +84,7 @@ const getPhotoDetail = async (req, res) => {
     res.status(200).json({
       code: 200,
       msg: 'Get photo detail successful',
-      data: photo,
+      info: photo,
     });
   } catch (error) {
     console.error(error);
