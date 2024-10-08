@@ -9,6 +9,7 @@ const getAllPhotoByTestMomentID = async (req, res) => {
 
     // Map through the photos array to create an array of photo objects
     const photoInfo = photos.map(photo => ({
+      _id: photo._id,
       name: photo.name,
       photo_url: photo.photo_url,
       created_time: photo.created_time,
